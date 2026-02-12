@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research-to-App Trials</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>🔬 Research-to-App Trials</h1>
+            <p>Transform research concepts into functional applications using open-source AI</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Model Status -->
+        <section class="section">
+            <h2>🤖 Model Status</h2>
+            <div id="model-status" class="model-status-grid">
+                <div class="loading">Checking model availability...</div>
+            </div>
+        </section>
+
+        <!-- Workflow Input -->
+        <section class="section">
+            <h2>📝 Research Topic</h2>
+            <form id="workflow-form" class="workflow-form">
+                <div class="form-group">
+                    <label for="research-topic">Enter your research concept:</label>
+                    <textarea 
+                        id="research-topic" 
+                        name="researchTopic" 
+                        rows="4" 
+                        placeholder="Example: AI-powered code review assistant that provides real-time feedback on code quality and security vulnerabilities"
+                        required
+                    ></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="model-provider">Primary Model Provider:</label>
+                        <select id="model-provider" name="provider">
+                            <option value="ollama">Ollama</option>
+                            <option value="vllm">vLLM</option>
+                            <option value="tgi">TGI</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="model-name">Model:</label>
+                        <select id="model-name" name="model">
+                            <option value="llama3:8b">Llama3 8B</option>
+                            <option value="codellama">CodeLlama</option>
+                            <option value="mistral">Mistral</option>
+                            <option value="mixtral">Mixtral</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="execute-btn">
+                    <span class="btn-text">🚀 Start Workflow</span>
+                    <span class="btn-loading" style="display: none;">⏳ Executing...</span>
+                </button>
+            </form>
+        </section>
+
+        <!-- Workflow Progress -->
+        <section id="workflow-progress" class="section" style="display: none;">
+            <h2>⚡ Workflow Execution</h2>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+                <div id="progress-text" class="progress-text">Starting workflow...</div>
+            </div>
+
+            <div id="step-results" class="step-results"></div>
+        </section>
+
+        <!-- Results -->
+        <section id="results" class="section" style="display: none;">
+            <h2>📊 Results</h2>
+            <div class="results-header">
+                <div class="result-metric">
+                    <span class="metric-label">Execution Time:</span>
+                    <span id="execution-time" class="metric-value">-</span>
+                </div>
+                <div class="result-metric">
+                    <span class="metric-label">Steps Completed:</span>
+                    <span id="steps-completed" class="metric-value">-</span>
+                </div>
+            </div>
+
+            <div class="results-tabs">
+                <button class="tab-btn active" data-tab="architecture">🏗️ Architecture</button>
+                <button class="tab-btn" data-tab="code">💻 Code</button>
+                <button class="tab-btn" data-tab="documentation">📚 Documentation</button>
+                <button class="tab-btn" data-tab="deployment">🚀 Deployment</button>
+            </div>
+
+            <div class="tab-content">
+                <div id="architecture-tab" class="tab-pane active"></div>
+                <div id="code-tab" class="tab-pane"></div>
+                <div id="documentation-tab" class="tab-pane"></div>
+                <div id="deployment-tab" class="tab-pane"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Built with ❤️ using bilko-flow and open-source models</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
