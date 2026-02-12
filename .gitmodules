@@ -1,0 +1,3 @@
+[submodule "bilko-flow"]
+	path = bilko-flow
+	url = https://github.com/StanislavBG/bilko-flow.git
